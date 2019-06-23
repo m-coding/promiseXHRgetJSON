@@ -3,14 +3,14 @@
 ## Background
 Created the `getJSON` function in a past project to get data when calling an API. Might be useful in the future or maybe someone else out there could use it too.
 
-# Usage
+## Usage
 #### Example
 ```javascript
 var  params = {
     'userId': 1234,
 };
 
-apiRequest = getJSON('http://domain.com/something/api', {
+getJSON('http://domain.com/something/api', {
     method: 'GET',
     apiquery: params,
 })
@@ -33,7 +33,7 @@ var  params = {
 };
 var result;
 
-apiRequest = getJSON('https://jsonplaceholder.typicode.com/photos/', {
+getJSON('https://jsonplaceholder.typicode.com/photos/', {
     method: 'GET',
     apiquery: params,
 })
