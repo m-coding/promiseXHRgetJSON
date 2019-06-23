@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Demo</title>
+   <script src="xhrPromise.js"></script>
+</head>
+<body>
+   <h1>Demo using JSONPlaceholder</h1>
+
+   <p>See <a href="https://github.com/typicode/jsonplaceholder">https://github.com/typicode/jsonplaceholder</a></p>
+
+   <h1>Album Info</h1>
+
+   <div id="content"></div>
+
+   <h1>Code</h1>
+
+   <pre>
+    var  params = {
+        'albumId': 36,
+        'id': 1751,
+    };
+    var result;
+
+    apiRequest = getJSON('https://jsonplaceholder.typicode.com/photos/', {
+        method: 'GET',
+        apiquery: params,
+    })
+    .then(function (json) {
+        result = '&lt;b&gt;albumId:&lt;/b&gt; ' + json[0].albumId;
+        result += ' &lt;b&gt;id:&lt;/b&gt; ' + json[0].id;
+        result += '&lt;h2&gt;' + json[0].title + '&lt;/h2&gt;';
+        result += '&lt;img src="' + json[0].thumbnailUrl + '" &gt;';
+        document.getElementById("content").innerHTML = result;
+    })
+    .catch(function (error) {
+        result = 'API Failure: ' + error.status + ' ' + error.statusText;
+        document.getElementById("content").innerHTML = result;
+    });
+   </pre>
+
+   <script>
+    var  params = {
+        'albumId': 36,
+        'id': 1751,
+    };
+    var result;
+
+    apiRequest = getJSON('https://jsonplaceholder.typicode.com/photos/', {
+        method: 'GET',
+        apiquery: params,
+    })
+    .then(function (json) {
+        result = '<b>albumId:</b> ' + json[0].albumId;
+        result += ' <b>id:</b> ' + json[0].id;
+        result += '<h2>' + json[0].title + '</h2>';
+        result += '<img src="' + json[0].thumbnailUrl + '" >';
+        document.getElementById("content").innerHTML = result;
+    })
+    .catch(function (error) {
+        result = 'API Failure: ' + error.status + ' ' + error.statusText;
+        document.getElementById("content").innerHTML = result;
+    });
+   </script>
+
+</body>
+</html>
